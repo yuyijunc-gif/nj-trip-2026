@@ -3,142 +3,101 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>南京4日行程单 · 11.7-11.10（旅客版）</title>
+<title>南京4日自驾行程单 · 11.7-11.10（最终版）</title>
 <style>
   :root{
-    --ink:#243044; --sub:#5c6879; --line:#e2e8f0; --soft:#f5f8fb;
-    --brand:#0b4f8a; --brand2:#0f6e6e; --amber:#c2761a; --amber-soft:#fdf4e6;
-    --ok:#15803d; --red:#b3261e;
+    --ink:#1f2a37; --sub:#5b6675; --line:#e3e8ef; --soft:#f6f8fb;
+    --brand:#0f6e6e; --brand2:#0b4f8a; --pink:#e91e63; --warn:#c2410c; --ok:#15803d;
   }
   *{box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
   html,body{margin:0; padding:0;}
   body{
     font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;
-    color:var(--ink); font-size:14px; line-height:1.75; background:#eef1f5;
+    color:var(--ink); font-size:12.5px; line-height:1.62; background:#eef1f5;
   }
   .page{
     width:210mm; max-width:210mm; margin:10mm auto; background:#fff;
-    padding:13mm 13mm 15mm 13mm; box-shadow:0 2px 16px rgba(0,0,0,.08);
+    padding:14mm 13mm 16mm 13mm; box-shadow:0 2px 14px rgba(0,0,0,.08);
   }
+  /* 屏幕预览限制宽度，打印时按 A4 */
   @media screen{ .page{ width:794px; } }
+
   @page{ size:A4 portrait; margin:12mm 11mm 14mm 11mm; }
 
-  /* ---------- 封面头部 ---------- */
-  .cover{
-    background:linear-gradient(120deg,#0b4f8a,#0f6e6e 60%,#c2761a);
-    color:#fff; border-radius:14px; padding:16px 20px 14px; margin-bottom:12px;
-    break-inside:avoid; page-break-inside:avoid;
-  }
-  .cover .kicker{font-size:12px; letter-spacing:3px; opacity:.85;}
-  .cover h1{font-size:27px; margin:2px 0 6px; letter-spacing:1px; font-weight:800; color:#fff;}
-  .cover .lead{font-size:13.5px; opacity:.95; margin:0;}
-  .cover .chips{margin-top:10px; display:flex; flex-wrap:wrap; gap:7px;}
-  .cover .chip{background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.35);
-    border-radius:999px; padding:3px 12px; font-size:12.5px;}
-
-  .must{
-    display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin:10px 0 4px;
-  }
-  .must .c{background:var(--amber-soft); border:1px solid #f0dcb6; border-left:4px solid var(--amber);
-    border-radius:8px; padding:8px 11px; break-inside:avoid;}
-  .must .c b{color:var(--amber); display:block; font-size:13px;}
-  .must .c span{font-size:12.5px; color:#6b4a15;}
-
-  .contact{
-    border:1px dashed var(--brand); border-radius:8px; padding:8px 12px; margin-top:10px;
-    font-size:13px; background:var(--soft);
-  }
-  .contact b{color:var(--brand);}
-  .blank{display:inline-block; min-width:110px; border-bottom:1px solid #9aa7b8;}
-
+  h1{font-size:22px; margin:0 0 2px; color:var(--brand2); letter-spacing:.5px;}
+  .tagline{color:var(--sub); font-size:12.5px; margin:0 0 12px;}
   h2{
-    font-size:17px; color:#fff; background:linear-gradient(90deg,var(--brand),var(--brand2));
-    padding:7px 14px; border-radius:8px; margin:20px 0 10px;
+    font-size:16px; color:#fff; background:linear-gradient(90deg,var(--brand2),var(--brand));
+    padding:7px 12px; border-radius:7px; margin:22px 0 12px;
     page-break-after:avoid; break-after:avoid;
   }
+  h3{font-size:13.5px; color:var(--brand); margin:14px 0 6px;}
+  .meta-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:6px 0 4px;}
+  .meta-grid .cell{background:var(--soft); border:1px solid var(--line); border-radius:7px; padding:8px 10px;}
+  .meta-grid .cell b{display:block; color:var(--brand2); font-size:11px; margin-bottom:2px; font-weight:600;}
+  .note{background:#fff8ef; border:1px solid #f3d8a8; border-radius:7px; padding:9px 11px; margin:8px 0; color:#7a4a12;}
+  .note.warn{background:#fdeeee; border-color:#f3b4b4; color:#9a1c1c;}
+  .note.ok{background:#eefaf0; border-color:#bfe6c9; color:#1d6b34;}
 
-  /* ---------- 每日卡片 ---------- */
-  .day{border:1px solid var(--line); border-radius:12px; padding:0 0 6px; margin:12px 0; overflow:hidden;}
-  .dayhead{
-    background:var(--soft); border-bottom:3px solid var(--brand2);
-    padding:9px 14px; display:flex; align-items:center; gap:12px;
-  }
-  .badge{
-    flex:0 0 auto; width:44px; height:44px; border-radius:50%;
-    background:linear-gradient(135deg,var(--brand),var(--brand2)); color:#fff;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    line-height:1.1; font-weight:800;
-  }
-  .badge .n{font-size:17px;}
-  .badge .d{font-size:9px; opacity:.9;}
-  .dayhead .tx{flex:1 1 auto;}
-  .dayhead .tx .t{font-size:15.5px; font-weight:800; color:var(--brand);}
-  .dayhead .tx .s{font-size:12.5px; color:var(--sub);}
-  .dayhead .wx{text-align:right; font-size:12.5px; color:var(--amber); font-weight:600; white-space:nowrap;}
+  .hotel{border:1px solid var(--line); border-radius:8px; padding:10px 12px; margin:8px 0; background:var(--soft);}
+  .hotel .name{font-weight:700; color:var(--brand2); font-size:13.5px;}
+  .hotel .row{margin-top:4px; color:var(--sub);}
+  .hotel .price{color:var(--pink); font-weight:700;}
 
-  /* ---------- 时间轴 ---------- */
-  .tl{position:relative; padding:10px 14px 4px 14px;}
-  .tl:before{content:""; position:absolute; left:104px; top:14px; bottom:10px; width:2px; background:var(--line);}
-  .row{display:grid; grid-template-columns:86px 26px 1fr; gap:0; position:relative; padding:6px 0;
-    break-inside:avoid; page-break-inside:avoid;}
-  .row .tm{font-weight:800; color:var(--brand); font-size:13.5px; padding-top:2px; white-space:nowrap;}
-  .row .dot{position:relative;}
-  .row .dot i{position:absolute; left:5px; top:8px; width:11px; height:11px; border-radius:50%;
-    background:#fff; border:3px solid var(--brand2); display:block;}
-  .row.key .dot i{border-color:var(--amber); background:var(--amber);}
-  .row .bd{padding-left:4px;}
-  .row .bd .ttl{font-weight:700; font-size:14px;}
-  .row.key .bd .ttl{color:var(--amber);}
-  .row .bd .det{font-size:12.8px; color:var(--sub); margin-top:2px;}
-  .tags{margin-top:4px;}
-  .tag{display:inline-block; background:#eef4fb; border:1px solid #d5e3f2; color:var(--brand);
-    border-radius:6px; padding:1px 8px; margin:2px 5px 0 0; font-size:11.8px; font-weight:600;}
+  .route-bar{background:var(--soft); border:1px dashed var(--brand); border-radius:8px; padding:10px 12px; line-height:1.9; color:var(--ink);}
+  .route-bar b{color:var(--brand2);}
 
-  .tipbar{
-    margin:8px 14px 10px; border-radius:8px; padding:8px 12px; font-size:12.8px;
-    background:var(--amber-soft); border:1px solid #f0dcb6; color:#6b4a15;
-  }
-  .tipbar b{color:var(--amber);}
+  .day{border:1px solid var(--line); border-radius:10px; padding:12px 14px; margin:10px 0;}
+  .day .dayhead{display:flex; justify-content:space-between; align-items:baseline; border-bottom:2px solid var(--brand); padding-bottom:6px; margin-bottom:8px;}
+  .day .dayhead .t{font-size:15px; font-weight:700; color:var(--brand2);}
+  .day .dayhead .w{color:var(--sub); font-size:12px;}
 
-  /* ---------- 通用块 ---------- */
-  table{width:100%; border-collapse:collapse; margin:8px 0; font-size:13px;}
-  th,td{border:1px solid var(--line); padding:7px 9px; text-align:left; vertical-align:top;}
-  th{background:var(--brand); color:#fff; font-weight:600;}
+  .item{display:grid; grid-template-columns:74px 1fr; gap:10px; padding:7px 0; border-bottom:1px dotted var(--line); break-inside:avoid;}
+  .item:last-child{border-bottom:none;}
+  .item .time{font-weight:700; color:var(--brand); white-space:nowrap; font-size:12px; padding-top:1px;}
+  .item .body .ttl{font-weight:600;}
+  .item .body .det{color:var(--sub); font-size:12px; margin-top:2px;}
+  .item .body .tag{display:inline-block; background:var(--soft); border:1px solid var(--line); border-radius:5px; padding:1px 6px; margin:3px 4px 0 0; font-size:11px; color:var(--brand2);}
+
+  table{width:100%; border-collapse:collapse; margin:8px 0; font-size:12px; break-inside:auto;}
+  th,td{border:1px solid var(--line); padding:6px 8px; text-align:left; vertical-align:top;}
+  th{background:var(--brand2); color:#fff; font-weight:600;}
   tr{break-inside:avoid; page-break-inside:avoid;}
   tbody tr:nth-child(even){background:var(--soft);}
+  tfoot td{font-weight:700; background:#eef6ee;}
 
-  .hotel{border:1px solid var(--line); border-radius:10px; padding:10px 13px; margin:8px 0; background:var(--soft);
-    break-inside:avoid; page-break-inside:avoid;}
-  .hotel .nm{font-weight:800; color:var(--brand); font-size:14.5px;}
-  .hotel .rw{font-size:13px; color:var(--sub); margin-top:3px;}
+  .budget{display:grid; grid-template-columns:repeat(2,1fr); gap:8px;}
+  .budget .b{border:1px solid var(--line); border-radius:8px; padding:9px 11px; background:var(--soft);}
+  .budget .b .k{color:var(--sub); font-size:11.5px;}
+  .budget .b .v{font-size:15px; font-weight:700; color:var(--pink);}
+  .total{margin-top:10px; text-align:center; font-size:15px; background:linear-gradient(90deg,var(--brand),var(--brand2)); color:#fff; padding:9px; border-radius:8px;}
+  .total b{font-size:18px;}
 
-  .cols2{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
-  .card{border:1px solid var(--line); border-radius:10px; padding:10px 13px; break-inside:avoid; page-break-inside:avoid;}
-  .card h4{margin:0 0 5px; font-size:14px; color:var(--brand2);}
-  .card ul{margin:0; padding-left:19px;}
-  .card li{font-size:13px; margin:2px 0;}
+  .checklist{columns:2; column-gap:22px;}
+  .checklist .grp{break-inside:avoid; margin-bottom:10px;}
+  .checklist .grp h4{margin:0 0 4px; color:var(--brand); font-size:13px;}
+  .checklist .grp ul{margin:0; padding-left:18px;}
+  .checklist .grp li{margin:2px 0; color:var(--ink);}
 
-  .rules{background:var(--soft); border-left:5px solid var(--red); border-radius:0 10px 10px 0;
-    padding:10px 14px; margin:10px 0; break-inside:avoid; page-break-inside:avoid;}
-  .rules ol{margin:5px 0 0; padding-left:21px;}
-  .rules li{font-size:13.2px; margin:4px 0;}
+  .rules{background:var(--soft); border-left:4px solid var(--pink); border-radius:0 7px 7px 0; padding:8px 12px; margin:8px 0;}
+  .rules ol{margin:4px 0 0; padding-left:20px;}
+  .rules li{margin:3px 0;}
 
-  .foot{margin-top:16px; text-align:center; font-size:11.5px; color:var(--sub);
-    border-top:1px solid var(--line); padding-top:8px;}
+  .remind{border:1px solid var(--line); border-radius:8px; padding:9px 12px; margin:7px 0;}
+  .remind.red{background:#fdeeee; border-color:#f3b4b4;}
+  .remind.org{background:#fff6ec; border-color:#f3cfa3;}
+  .remind.grn{background:#eefaf0; border-color:#bfe6c9;}
 
-  .print-btn{position:fixed; top:14px; right:14px; background:var(--brand); color:#fff; border:none;
-    padding:10px 16px; border-radius:8px; font-size:13px; cursor:pointer; box-shadow:0 2px 10px rgba(0,0,0,.22);}
-  .navlink{position:fixed; top:14px; right:150px; background:#fff; color:var(--brand); border:1px solid var(--brand);
-    padding:9px 14px; border-radius:8px; font-size:13px; text-decoration:none; box-shadow:0 2px 8px rgba(0,0,0,.12);}
+  .print-btn{position:fixed; top:14px; right:14px; background:var(--brand2); color:#fff; border:none; padding:10px 16px; border-radius:8px; font-size:13px; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.2);}
+  .foot{margin-top:16px; color:var(--sub); font-size:11px; text-align:center; border-top:1px solid var(--line); padding-top:8px;}
 
   @media print{
     body{background:#fff;}
     .page{margin:0; box-shadow:none; width:auto; max-width:none; padding:0;}
-    .print-btn,.navlink{display:none;}
-    .cover{background:linear-gradient(120deg,#0b4f8a,#0f6e6e 60%,#c2761a) !important;}
-    h2{background:linear-gradient(90deg,var(--brand),var(--brand2)) !important;}
-    .badge{background:linear-gradient(135deg,var(--brand),var(--brand2)) !important;}
-    h2{page-break-after:avoid;}
+    .print-btn{display:none;}
+    h2{background:linear-gradient(90deg,var(--brand2),var(--brand)) !important; -webkit-print-color-adjust:exact;}
+    .day,.hotel,.item,.remind,.note{break-inside:avoid; page-break-inside:avoid;}
+    .item{break-inside:avoid;}
   }
 </style>
 </head>
@@ -147,281 +106,240 @@
 
 <div class="page">
 
-  <!-- ===== 封面 ===== -->
-  <div class="cover">
-    <div class="kicker">NANJING · AUTUMN TRIP</div>
-    <h1>🍁 南京 4 日行程 · 旅客版</h1>
-    <p class="lead">2026年11月7日（周六）— 11月10日（周二）｜ 永康出发 · 自驾往返</p>
-    <div class="chips">
-      <span class="chip">👥 11 人同行</span>
-      <span class="chip">🚗 2 辆车</span>
-      <span class="chip">🎫 门票已统一安排</span>
-      <span class="chip">🏨 住宿含早餐</span>
-      <span class="chip">🅿️ 停车已规划</span>
-    </div>
+  <h1>🚗 永康 → 南京 4 日自驾行程单</h1>
+  <p class="tagline">2026年11月7日（周六）— 11月10日（周二）｜ 👥 11人（5位75+老人 + 6位年轻人）｜ 🚗 自驾（2辆车）｜ <b>修订版（纪念馆改D2 · 牛首山移D4 · D3改玄武湖+台城城墙）</b></p>
+
+  <div class="meta-grid">
+    <div class="cell"><b>出行日期</b>11/7 周六 · 11/8 周日 · 11/9 周一 · 11/10 周二</div>
+    <div class="cell"><b>人员构成</b>5 位 75+ 老人 + 6 位年轻人（共 11 人）</div>
+    <div class="cell"><b>车辆 / 住宿</b>2 辆车 · 宣城1晚 + 南京2晚（均含早+免费停车）</div>
   </div>
 
-  <div class="must">
-    <div class="c"><b>① 身份证原件</b><span>全员必带，景区入场与演出核验都要用</span></div>
-    <div class="c"><b>② 老年证</b><span>长辈优待凭证，与身份证一起随身放</span></div>
-    <div class="c"><b>③ 常用药品</b><span>慢性病药按天分装，救心丸随身不放后备箱</span></div>
-  </div>
+  <div class="note ok">✅ <b>本版相对原单的三处改动</b>：<br>
+  ① <b>D3 改为「玄武湖 + 台城城墙」</b>（最新）：原鸡鸣寺/玄武湖→红山动物园的方案取消。理由：红山是山坡地形、位于城北，与明孝陵分居城市两端，横穿城区 12km；玄武湖+城墙全程平地，且解放门登城口离面馆仅 1.5km，绕路彻底消除，出发时间也从 07:30 放宽到 08:30。<br>
+  ② <b>D2 / D4 对调</b>：纪念馆官方通告 <b>11月9日—12月13日闭馆</b>（筹备重要活动及场馆检修），原 D4 的纪念馆<b>提前到 D2 下午</b>；牛首山<b>移到 D4 上午</b>，并在 D2 上午新增顺路的<b>莫愁湖公园</b>（免费、平地）。<br>
+  ③ 德云社票已抢到，D2 晚场不变。</div>
 
-  <div class="contact">
-    <b>紧急联系</b>　领队：<span class="blank">&nbsp;</span>　第二联系人：<span class="blank">&nbsp;</span><br>
-    <b>同车安排</b>　1 号车：<span class="blank">&nbsp;</span>　2 号车：<span class="blank">&nbsp;</span>
-  </div>
+  <div class="note warn">🔴 <b>闭馆通告（已核实）</b>：侵华日军南京大屠杀遇难同胞纪念馆官方公众号 2026/11/2 推送——因筹备并举行重要活动及场馆设备检修需要，<b>2026年11月9日（周一）至12月13日（周日）闭馆</b>。本行程唯一能参观的日子只剩 <b>11月8日（周日）</b>，必须约「下午时段」。</div>
 
-  <!-- ===== 行程总览 ===== -->
-  <h2>🗺️ 四天一眼看懂</h2>
-  <table>
-    <thead>
-      <tr><th style="width:62px">日期</th><th style="width:96px">星期</th><th>当天主线</th><th style="width:120px">当晚住地</th></tr>
-    </thead>
-    <tbody>
-      <tr><td><b>11/7</b></td><td>周六</td><td>永康出发 → 宣城，入住休息</td><td>宣城 · 格林豪泰</td></tr>
-      <tr><td><b>11/8</b></td><td>周日</td><td>莫愁湖 → 茶南午餐 → 大屠杀纪念馆 → 夫子庙 → 德云社</td><td>南京 · 莫泰（夫子庙）</td></tr>
-      <tr><td><b>11/9</b></td><td>周一</td><td>玄武湖坐船 → 台城城墙 → 老卤面 → 明孝陵赏秋 → 秦淮夜景</td><td>南京 · 莫泰（夫子庙）</td></tr>
-      <tr><td><b>11/10</b></td><td>周二</td><td>牛首山 → 半山素面 → 返程回永康</td><td>🏠 温暖的家</td></tr>
-    </tbody>
-  </table>
-
-  <!-- ===== D1 ===== -->
-  <h2>📅 D1 · 11月7日（周六）</h2>
-  <div class="day">
-    <div class="dayhead">
-      <div class="badge"><span class="n">D1</span><span class="d">11/7</span></div>
-      <div class="tx"><div class="t">永康 → 宣城 · 直奔酒店</div><div class="s">全程高速，不进市区，车上备好水与小零食</div></div>
-      <div class="wx">🌙 夜间 9-14°C<br>带件外套</div>
-    </div>
-    <div class="tl">
-      <div class="row"><div class="tm">16:30</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">家中集合 · 吃晚饭</div>
-        <div class="det">在家吃饱再上路，行李提前装车，17:00 准时出发。</div></div></div>
-      <div class="row key"><div class="tm">17:00</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">出发！永康 → 宣城</div>
-        <div class="det">长深高速(G25) → 临金高速(S29) → 溧宁高速(G4012) → 宣城绕城(S81) → 宣城东出口 → 酒店</div>
-        <div class="tags"><span class="tag">约 320 km</span><span class="tag">纯驾 3 小时 43 分</span><span class="tag">服务区休息 2 次</span></div></div></div>
-      <div class="row"><div class="tm">≈21:15</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">抵达宣城 · 办理入住</div>
-        <div class="det">两辆车尽量一起到，方便停车。洗个热水澡早点睡，明早 7:00 起床。</div></div></div>
-    </div>
-    <div class="tipbar">💡 <b>今晚要点</b>：酒店含自助早餐（07:00-09:00），明早吃饱再出发。老人长途坐车请每隔 1.5 小时在服务区下车活动腿脚。</div>
-  </div>
-
-  <!-- ===== D2 ===== -->
-  <h2>📅 D2 · 11月8日（周日）</h2>
-  <div class="day">
-    <div class="dayhead">
-      <div class="badge"><span class="n">D2</span><span class="d">11/8</span></div>
-      <div class="tx"><div class="t">莫愁湖 → 纪念馆 → 夫子庙 → 德云社</div><div class="s">上午湖边平路散步，下午参观纪念馆，全天没有爬山</div></div>
-      <div class="wx">☀️ 白天 15-18°C<br>夜晚偏凉</div>
-    </div>
-    <div class="tl">
-      <div class="row"><div class="tm">07:00</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">酒店自助早餐</div>
-        <div class="det">中式自助，吃饱再出发。今天不用赶早。</div></div></div>
-      <div class="row"><div class="tm">08:30</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">宣城 → 南京 · 莫愁湖公园</div>
-        <div class="det">宣城绕城(S81) → 宁宣高速(S55) → 南京绕城高速 → 汉中门大街 → 莫愁湖公园北门停车场</div>
-        <div class="tags"><span class="tag">约 170 km</span><span class="tag">约 2 小时 15 分</span><span class="tag">服务区休息 1 次</span></div></div></div>
-      <div class="row key"><div class="tm">10:50</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">🍁 莫愁湖公园散步（免费）</div>
-        <div class="det">金陵第一名湖，11 月乌桕、水杉正有秋色。<b>环湖步道全程平坦无台阶</b>，长廊随处可坐，走一段就折返，不必绕完整圈。园内可免费借轮椅、有热水点。</div>
-        <div class="tags"><span class="tag">散步约 1 小时</span><span class="tag">全程平地</span></div></div></div>
-      <div class="row"><div class="tm">12:05</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">🍽 茶南美食街 · 午餐</div>
-        <div class="det">安家桂花汤圆、小李汤包、许阿姨糕团、凤英包子……买着吃边走边逛，距莫愁湖约 3 公里。</div></div></div>
-      <div class="row key"><div class="tm">13:10</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">🕊️ 侵华日军南京大屠杀遇难同胞纪念馆</div>
-        <div class="det">免费参观，<b>已提前预约下午时段</b>，全员带身份证原件。参观请保持安静、庄重；室内冷气足，长辈可加件外套。</div>
-        <div class="tags"><span class="tag">参观约 2 小时</span><span class="tag">已预约下午时段</span></div></div></div>
-      <div class="row"><div class="tm">15:10</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">前往南京酒店 · 办理入住</div>
-        <div class="det">约 9 km / 25 分钟。到店先卸行李，再停合作停车场。</div></div></div>
-      <div class="row"><div class="tm">15:35</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">🏨 酒店休整（午休 2 小时，特意留白）</div>
-        <div class="det">上午散步、下午看馆，长辈回房午休充电。之后到晚上都不用动车。</div></div></div>
-      <div class="row"><div class="tm">17:30</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">步行逛夫子庙 · 秦淮河</div>
-        <div class="det">酒店出门 190 米即步行街。路线：步行街 → 科举博物馆 → 秦淮河沿岸 → 文德桥 → 乌衣巷。路面平坦，走累随时回酒店。</div></div></div>
-      <div class="row"><div class="tm">18:30</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">🥟 晚餐 · 老门东小吃</div>
-        <div class="det">蒋有记锅贴、小郑酥烧饼、蓝老大糖粥藕、陆氏梅花糕……分开买一起吃，边走边尝。</div></div></div>
-      <div class="row key"><div class="tm">19:30</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">🎭 德云社相声晚场（老门东）</div>
-        <div class="det"><b>票已购好 ✅</b>，实名制 + 人脸识别，<b>11 人务必带身份证原件</b>。老门东距酒店约 1 公里：年轻人步行 15 分钟，长辈建议打车（起步价，3 分钟到）。</div>
-        <div class="tags"><span class="tag">演出约 2.5 小时</span><span class="tag">散场后早回酒店</span></div></div></div>
-    </div>
-    <div class="tipbar">💡 <b>今晚要点</b>：夜里约 10°C，秦淮河边风大，围巾帽子用上了。散场后长辈直接打车回酒店，别再走长路。</div>
-  </div>
-
-  <!-- ===== D3 ===== -->
-  <h2>📅 D3 · 11月9日（周一）</h2>
-  <div class="day">
-    <div class="dayhead">
-      <div class="badge"><span class="n">D3</span><span class="d">11/9</span></div>
-      <div class="tx"><div class="t">玄武湖坐船 → 台城城墙 → 老卤面 → 明孝陵赏秋</div><div class="s">全程平地，不用赶早，今天是最轻松的一天</div></div>
-      <div class="wx">🍂 全天 8-17°C<br>石象路正当时</div>
-    </div>
-    <div class="tl">
-      <div class="row"><div class="tm">07:30</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">酒店自助早餐（07:00-09:30）</div>
-        <div class="det">今天不用赶早，慢慢吃，8 点半上车。</div></div></div>
-      <div class="row"><div class="tm">08:30</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">酒店 → 玄武湖 · 解放门</div>
-        <div class="det">长乐路 → 太平南路 → 中山东路 → 解放路 → 解放门。车停景区停车场或鸡鸣寺路社会停车场（现场按指引停）。</div>
-        <div class="tags"><span class="tag">约 6 km</span><span class="tag">约 20-25 分钟</span></div></div></div>
-      <div class="row key"><div class="tm">09:00</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">🌊 玄武湖 · 环洲—樱洲长廊散步（免费）</div>
-        <div class="det">穿解放门门洞就到湖边。沿临水长廊走约 1 公里，<b>长椅密集，走累随时坐</b>。11 月是越冬候鸟季，鸳鸯、白骨顶鸡、黑天鹅都在湖面上；梁洲的银杏大道此时正金黄。</div>
-        <div class="tags"><span class="tag">免费</span><span class="tag">全程平地</span><span class="tag">可借轮椅</span></div></div></div>
-      <div class="row key"><div class="tm">09:40</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">⛵ 玄武湖坐船（6 座电动船）</div>
-        <div class="det">一条船可坐 6 人，分两批各绕湖约 20 分钟，11 人全坐上。<b>上船穿好救生衣，不要站立、不要伸手入水</b>，长辈由年轻人陪坐中间。</div>
-        <div class="tags"><span class="tag">约 40 分钟</span><span class="tag">穿救生衣</span></div></div></div>
-      <div class="row key"><div class="tm">10:30</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">🏯 台城城墙（解放门登城）</div>
-        <div class="det">南京城墙最精华的一段，<b>城墙上是一条平路</b>，能同时看到玄武湖、鸡鸣寺和紫金山。<b>登城有一段台阶，请扶好扶手慢慢上</b>；不方便爬台阶的长辈就在湖边等，年轻人上去拍照。</div>
-        <div class="tags"><span class="tag">约 45 分钟</span><span class="tag">长辈免票</span><span class="tag">登城有台阶</span></div></div></div>
-      <div class="row"><div class="tm">11:20</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">前往面馆</div>
-        <div class="det">约 1.5 km / 6 分钟，是全天最短的一段车程。车停珠江路沿线，步行 5-8 分钟到店。</div></div></div>
-      <div class="row key"><div class="tm">11:45</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">🍜 午餐 · 一味老卤面（大石桥店）</div>
-        <div class="det">玄武区大石桥街 6 号，本地网红面馆。<b>长辈建议改点汤面、备注少盐、面条煮软</b>（招牌干挑面偏甜偏油）。店面只有十来张桌子，11 人分两桌坐。</div>
-        <div class="tags"><span class="tag">13:00 前吃完</span><span class="tag">分两桌</span></div></div></div>
-      <div class="row"><div class="tm">13:15</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">前往苜蓿园停车场</div>
-        <div class="det">约 5.5 km / 18 分钟。<b>陵园路（梧桐大道）全路段禁止路边停车拍照，会被抓拍罚款。</b></div></div></div>
-      <div class="row"><div class="tm">13:40</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">🍂 陵园路 · 梧桐大道 散步拍照</div>
-        <div class="det">从苜蓿园沿陵园路走向明孝陵。此时的梧桐约三四成黄，清新好看；真正的重头戏是接下来的石象路。</div></div></div>
-      <div class="row key"><div class="tm">14:10</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">🏛️ 明孝陵 · 石象路赏秋（南京最美 600 米）</div>
-        <div class="det">乌桕与银杏正处最佳观赏期的尾巴，是本次行程<b>唯一的限定秋色窗口</b>。路面平坦、强度低，慢慢走慢慢拍。</div>
-        <div class="tags"><span class="tag">游览约 1.5 小时</span><span class="tag">长辈免票</span></div></div></div>
-      <div class="row"><div class="tm">15:55</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">返回酒店</div>
-        <div class="det">约 6 km / 20 分钟。比原计划早回近 1 小时。</div></div></div>
-      <div class="row"><div class="tm">16:15</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">酒店休整 / 自由活动（近 2 小时）</div>
-        <div class="det">长辈回房正经睡一觉，年轻人洗漱整理。</div></div></div>
-      <div class="row"><div class="tm">19:00</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">🌃 夫子庙 · 秦淮河夜景 + 晚餐小吃</div>
-        <div class="det">出门 190 米，慢走消食看灯光，顺带吃些小吃。逛累随时回房。</div></div></div>
-    </div>
-    <div class="tipbar">💡 <b>今日特点</b>：玄武湖、城墙、面馆、明孝陵是一条从北往南、再往东的顺线，全天驾车仅约 19 km，<b>全程无坡、步行约 3.5 km</b>。登城墙的台阶请一定扶着走。</div>
-  </div>
-
-  <!-- ===== D4 ===== -->
-  <h2>📅 D4 · 11月10日（周二）</h2>
-  <div class="day">
-    <div class="dayhead">
-      <div class="badge"><span class="n">D4</span><span class="d">11/10</span></div>
-      <div class="tx"><div class="t">牛首山 → 半山素面 → 返程回家</div><div class="s">上午全程坐观光车，下午长途返程，请提前收拾行李</div></div>
-      <div class="wx">🚗 返程约 400 km<br>含休息约 5.5 小时</div>
-    </div>
-    <div class="tl">
-      <div class="row"><div class="tm">07:00</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">酒店自助早餐 · 退房</div>
-        <div class="det">早餐 07:00 开始，吃饱再走；<b>行李全部装车，房间仔细检查勿遗漏。</b></div></div></div>
-      <div class="row"><div class="tm">08:00</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">酒店 → 牛首山东门</div>
-        <div class="det">长乐路 → 内环东线 → 卡子门立交 → 绕城高速 → 宁丹路 → 牛首山东门 P1 停车场（室内，1501 个车位）。</div>
-        <div class="tags"><span class="tag">约 20 km</span><span class="tag">约 35 分钟</span></div></div></div>
-      <div class="row key"><div class="tm">08:35</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">🏔️ 牛首山文化旅游区</div>
-        <div class="det">东门进 → 观光车 → 佛顶宫（地宫，扶梯直达）→ 佛顶塔 → 佛顶寺 → 坐车回东门。<b>全程乘坐观光车，长辈不爬山</b>；周二工作日人最少，慢慢看。</div>
-        <div class="tags"><span class="tag">游览约 4 小时</span><span class="tag">必坐观光车</span><span class="tag">长辈免票</span></div></div></div>
-      <div class="row"><div class="tm">12:30</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">🍜 午餐 · 半山素面</div>
-        <div class="det">清淡养生，面条软烂好消化，对长辈肠胃友好。吃完上厕所、活动腿脚再发车。</div></div></div>
-      <div class="row key"><div class="tm">13:15</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">🚗 启程回家 · 牛首山 → 永康</div>
-        <div class="det">宁丹路 → 南京绕城高速 → 长深高速(G25) → 杭州绕城(G2504) → 沪昆高速(G60) → 永康。<b>服务区停 2 次</b>，长辈每次下车活动 10 分钟防腿肿。</div>
-        <div class="tags"><span class="tag">约 400 km</span><span class="tag">约 4 小时 50 分</span><span class="tag">含休息约 5.5 小时</span></div></div></div>
-      <div class="row"><div class="tm">≈19:00</div><div class="dot"><i></i></div><div class="bd">
-        <div class="ttl">🏠 抵达永康 · 行程圆满结束 🎉</div></div></div>
-    </div>
-    <div class="tipbar">💡 <b>返程要点</b>：上午爬坡都由观光车代步，但佛顶宫内部仍需步行，长辈量力而行；车上备靠垫、热水、护膝。出发前核对身份证、老年证、药品是否随身。</div>
-  </div>
-
-  <!-- ===== 住宿 ===== -->
+  <!-- ============ 住宿 ============ -->
   <h2>🏨 住宿安排（均含早餐 + 免费停车）</h2>
+
   <div class="hotel">
-    <div class="nm">D1 · 宣城｜格林豪泰智选酒店（双桥物流园区店）</div>
-    <div class="rw">📍 宣州区宛陵东路 · 林泰物流市场｜2024 年新开业，评分 4.5</div>
-    <div class="rw">🚗 免费停车（车位有限，先到先得）｜🍳 自助早餐 07:00-09:00｜宣城东出口旁，上下高速 3 分钟</div>
-  </div>
-  <div class="hotel">
-    <div class="nm">D2-D3 · 南京｜如家莫泰酒店（夫子庙地铁站平江府路店）</div>
-    <div class="rw">📍 秦淮区平江府路 154 号｜评分 4.7，夫子庙经济型热卖 No.2</div>
-    <div class="rw">🚗 免费停车（合作停车场 2-3 楼）｜🍳 自助早餐 07:00-09:30｜夫子庙步行街 190 米 · 秦淮河 260 米 · 老门东约 1 公里</div>
+    <div class="name">D1 · 宣城 · 格林豪泰智选酒店（双桥物流园区店）</div>
+    <div class="row">⭐ 4.5分（2024年新开业）｜ 宣州区宛陵东路·林泰物流市场｜ 免费停车场（车位有限先到先得）｜ 含自助早餐 07:00-09:00</div>
+    <div class="row"><span class="price">¥180/间/晚</span>（5间 = <b>¥900</b>）｜ 宣城东出口交通节点，上下高速3分钟，不进市区</div>
   </div>
 
-  <!-- ===== 停车 ===== -->
-  <h2>🅿️ 停车指引</h2>
+  <div class="hotel">
+    <div class="name">D2-D3 · 南京 · 如家莫泰酒店（夫子庙地铁站平江府路店）</div>
+    <div class="row">⭐ 4.7分（2800+条评价，夫子庙经济型热卖No.2）｜ 秦淮区平江府路154号｜ 免费停车（合作停车场2-3楼）｜ 含自助早餐 07:00-09:30</div>
+    <div class="row"><span class="price">¥240/间/晚</span>（5间 × 2晚 = <b>¥2,400</b>）｜ 夫子庙步行街190米｜秦淮河260米｜老门东（德云社）1公里</div>
+  </div>
+
+  <!-- ============ 全程路线总图 ============ -->
+  <h2>🗺️ 全程路线总图</h2>
+  <div class="route-bar">
+    <b>D1</b>：永康 🚗320km/纯驾3h43min（含休息约4h15min）→ 宣城格林豪泰<br>
+    <b>D2</b>：宣城 🚗约170km/2h15min → <b>莫愁湖公园</b>（上午·免费）🚗约3km/10min → 茶南美食街（午餐）🚗约2.5km/8min → <b>纪念馆</b>（下午）🚗约9km/25min → 莫泰酒店办入住·午休 🚶步行 → 夫子庙·老门东（德云社晚场）→ 🚗1km/3min → 酒店<br>
+    <b>D3</b>：莫泰酒店 🚗约6km/20min → <b>玄武湖（解放门）</b>游船·散步 🚶 → <b>台城城墙</b>（解放门登城）🚗约1.5km/6min → <b>一味老卤面（大石桥）</b>（午餐）→ 🚗约5.5km/18min → 梧桐大道/明孝陵（下午）🚗约6km/20min → 酒店 🚶步行 → 夫子庙夜景<br>
+    <b>D4</b>：莫泰酒店 🚗约20km/35min → <b>牛首山</b>（上午）→ 半山素面午餐 → 🚗约400km/约4h50min（含休息5.5h）→ 🏠 永康
+  </div>
+
+  <!-- ============ D1 ============ -->
+  <h2>📅 D1 · 11月7日（周六） 永康 → 宣城（直达酒店）</h2>
+  <div class="day">
+    <div class="dayhead"><span class="t">永康 → 宣城 · 格林豪泰智选酒店</span><span class="w">🍂 晚间约9-14°C，带件外套</span></div>
+    <div class="item"><div class="time">16:30-17:00</div><div class="body"><div class="ttl">在永康家中吃完晚饭</div></div></div>
+    <div class="item"><div class="time">17:00</div><div class="body"><div class="ttl">出发 · 永康 → 宣城</div><div class="det">永康 → 长深高速(G25) → 临金高速(S29) → 溧宁高速(G4012) → 宣城绕城(S81) → 宣城东出口 → 格林豪泰。全程高速不进市区。</div><div class="tag">320km</div><div class="tag">纯驾约3h43min</div><div class="tag">中途服务区休息2次</div><div class="det">实际总用时约4h15min（含休息）。</div></div></div>
+    <div class="item"><div class="time">~21:15</div><div class="body"><div class="ttl">抵达 · 办理入住</div><div class="det">免费停车场（两辆车尽量一起到）；含自助早餐 07:00-09:00，明早吃饱再出发。洗热水澡直接睡，明早7点起床。</div></div></div>
+    <div class="note">🏨 宣城住宿5间（含早）900元 ｜ 🚗 油费+高速（永康→宣城，2辆车）约660元 ｜ 当日合计约 <b>¥1,560</b></div>
+  </div>
+
+  <!-- ============ D2 ============ -->
+  <h2>📅 D2 · 11月8日（周日） 宣城 → 莫愁湖 → 茶南午餐 → 纪念馆 → 德云社晚场</h2>
+  <div class="day">
+    <div class="dayhead"><span class="t">上午莫愁湖 · 中午茶南 · 下午纪念馆 · 晚上德云社（票已购✅）</span><span class="w">☀️ 白天约15-18°C</span></div>
+
+    <div class="note">🔁 <b>本天为本版新排</b>：因纪念馆 11/9 起闭馆 35 天，纪念馆从 D4 提前到今天下午；原 D2 上午的牛首山改到 D4。上午顺路补一个<b>莫愁湖公园</b>（免费、全程平地），与茶南、纪念馆互距 2-3km，同一小片区零绕路。</div>
+
+    <div class="item"><div class="time">07:00-07:45</div><div class="body"><div class="ttl">格林豪泰自助早餐</div><div class="det">房费含早，中式自助，吃饱再出发。今天不用赶早，7点起床即可。</div></div></div>
+    <div class="item"><div class="time">08:30-10:45</div><div class="body"><div class="ttl">宣城 → 南京 · 莫愁湖公园</div><div class="det">格林豪泰 → 宣城绕城(S81) → 宁宣高速(S55)北上 → 南京绕城高速 → 汉中门大街 → 莫愁湖公园北门停车场。中途服务区休息1次。</div><div class="tag">约170km</div><div class="tag">约2h15min</div></div></div>
+    <div class="item"><div class="time">10:50-11:50</div><div class="body"><div class="ttl">🍁 莫愁湖公园（免费）</div><div class="det">建邺区水西门大街132号，2022年起免票。11月有乌桕/水杉秋色，<b>环湖步道约3km、全程平坦无台阶</b>，长廊随处可坐；园内可免费借轮椅、有热水点。走湖边一段即可折返，不必绕完整圈。胜棋楼等室内展馆 8:30-17:00（周一闭馆，周日不受影响）。</div><div class="tag">🎫 免费</div><div class="tag">逛约1h</div></div></div>
+    <div class="item"><div class="time">11:50-12:05</div><div class="body"><div class="ttl">莫愁湖 → 茶南美食街</div><div class="det">约3km/10min，茶南农贸市场停车场或路边泊位（约6-10元）。</div></div></div>
+    <div class="item"><div class="time">12:05-13:00</div><div class="body"><div class="ttl">🍽 茶南美食街午餐（人均20-30）</div><div class="det">安家桂花汤圆（酒酿红枣底，软糯）｜ 小李汤包（11元/笼）｜ 许阿姨糕团（蛋黄肉松青团）｜ 凤英包子（麻油菜包）。买着吃边走边逛。</div><div class="tag">11人≈300</div></div></div>
+    <div class="item"><div class="time">13:00-13:10</div><div class="body"><div class="ttl">茶南 → 大屠杀纪念馆</div><div class="det">约2.5km/8min，停"三个必胜"地下停车场（443位，约10元/次）。认准馆方停车场，勿理路边"黄牛"。</div></div></div>
+    <div class="item"><div class="time">13:10-15:10</div><div class="body"><div class="ttl">🕊️ 侵华日军南京大屠杀遇难同胞纪念馆（免费）</div><div class="det"><b>11/9-12/13 闭馆，今天是唯一机会</b>。须提前1-7天在官方公众号预约，<b>务必选「下午时段」（12:30-16:30，可提前至12:00入馆）</b>；5位75+老人走"优待预约"通道（不受名额限制，同样要预约）。全员带身份证原件。开放 8:30-17:30，<b>16:30 停止入馆</b>。2小时可看完主展馆史实展。</div><div class="tag">🎫 免费</div><div class="tag">预约下午时段</div><div class="tag">参观2h</div></div></div>
+    <div class="item"><div class="time">15:10-15:35</div><div class="body"><div class="ttl">纪念馆 → 莫泰酒店（平江府路）办入住</div><div class="det">江东中路 → 内环 → 长乐路 → 莫泰酒店（约9km/25min）。到店先卸行李再停合作停车场（2-3楼，免费）。</div></div></div>
+    <div class="item"><div class="time">15:35-17:30</div><div class="body"><div class="ttl">酒店休整（午休2小时）</div><div class="det">老人上午湖边走了1小时、下午纪念馆站了2小时，回房躺一会儿是今天的关键缓冲。之后不用再动车，夫子庙·老门东全在步行范围。</div></div></div>
+    <div class="item"><div class="time">17:30-18:30</div><div class="body"><div class="ttl">步行逛夫子庙·秦淮河</div><div class="det">酒店出门190米即步行街。路线：夫子庙步行街 → 科举博物馆 → 秦淮河沿岸 → 文德桥 → 乌衣巷。路面平坦，走累随时回酒店。</div></div></div>
+    <div class="item"><div class="time">18:30-19:15</div><div class="body"><div class="ttl">晚餐 · 老门东小吃组合（人均约35-45）</div><div class="det">蒋有记（鸭血粉丝25+牛肉锅贴20/两）｜ 小郑酥烧饼（3元/个）｜ 蓝老大糖粥藕（12元）｜ 陆氏梅花糕（7-10元）｜ 沈记臭豆腐。11人分开买一起吃。</div></div></div>
+    <div class="item"><div class="time">19:30-22:00</div><div class="body"><div class="ttl">🎭 德云社相声晚场（老门东）</div><div class="det">80元/人，实名制+人脸识别，全员带身份证原件！<b>票已抢到✅</b>。老门东距酒店约1公里：年轻人步行15分钟，5位老人打车/网约车起步价3分钟到。</div><div class="tag">🎫 11人×80=880</div></div></div>
+    <div class="note">🎭 德云社 880元 ｜ 🍽 茶南午餐 约300元 ｜ 🍢 老门东小吃 440元 ｜ 🚗 油费高速+停车(宣城→南京) 约240元 ｜ 当日合计约 <b>¥1,860</b></div>
+    <div class="note ok">💡 今天节奏比原计划更松：原计划上午爬山4.5h + 下午纪念馆2h，午休只剩1小时；现在上午是平地公园散步，午休完整保留2小时。</div>
+  </div>
+
+  <!-- ============ D3 改后 ============ -->
+  <h2>📅 D3 · 11月9日（周一） 玄武湖 → 台城城墙 → 老卤面 → 梧桐大道·明孝陵</h2>
+  <div class="day">
+    <div class="dayhead"><span class="t">上午玄武湖+登城墙 · 中午面馆 · 下午明孝陵 · 晚上夜景</span><span class="w">🍂 石象路秋色正当时；梧桐大道约三四成黄</span></div>
+
+    <div class="note">🔁 <b>本天改法（第三版）</b>：红山动物园取消，改为 <b>玄武湖 + 台城城墙</b>。三个好处：① 全程平地，替掉红山的山坡地形；② 解放门登城口离面馆仅 1.5km，全天车程从 28km/98min 降到约 19km/约 64min，横穿城区那段绕路消失；③ 08:30 从容出发，不用 07:30 摸黑赶路。</div>
+
+    <div class="item"><div class="time">07:30-08:15</div><div class="body"><div class="ttl">莫泰酒店自助早餐</div><div class="det">房费含早 07:00-09:30，中西式都有。今天不用赶早，慢慢吃。</div></div></div>
+    <div class="item"><div class="time">08:30-08:55</div><div class="body"><div class="ttl">莫泰酒店 → 玄武湖 · 解放门</div><div class="det">长乐路 → 太平南路 → 中山东路 → 解放路 → 解放门。解放门周边路侧车位紧张，建议停景区停车场（玄武门/解放门一带）或鸡鸣寺路社会停车场，以现场指引为准；周一早上好停。</div><div class="tag">约6km</div><div class="tag">约20-25min</div></div></div>
+    <div class="item"><div class="time">09:00-09:40</div><div class="body"><div class="ttl">🌊 玄武湖（免费）· 环洲—樱洲长廊散步</div><div class="det">穿解放门门洞即到湖畔，<b>公园免费、全天开放</b>。沿环洲、樱洲临水长廊走约1km，长椅密集、走累随时坐。11月正是<b>越冬候鸟季</b>：鸳鸯、白骨顶鸡、鸬鹚已抵达，天鹅岛/黄鸭岛常年有黑天鹅、凤头鸭，找张椅子坐着看鸟是零体力娱乐。梁洲「银杏大道」此时正金黄，是园内秋色最好的地方。</div><div class="tag">🎫 免费</div><div class="tag">全程平地</div><div class="tag">可借轮椅</div></div></div>
+    <div class="item"><div class="time">09:40-10:25</div><div class="body"><div class="ttl">⛵ 玄武湖游船（自开电动船）</div><div class="det">码头 8:30-17:00 营业；1 小时起租、押金 500 元/船、赠 5 分钟、超时每 10 分钟加 20 元，救生衣必穿、<b>不得单人乘船</b>。<b>省钱玩法：租 1 只 6 座卡通电船 160 元/小时，分两批各绕约 20 分钟</b>（第一批 6 人、第二批 5 人，同一码头上下），11 人全坐上共 160 元；想全员同船就租 2 只（320 元）。</div><div class="tag">6座160/小时</div><div class="tag">分两批≈160</div><div class="tag">押金500/船</div></div></div>
+    <div class="item"><div class="time">10:30-11:15</div><div class="body"><div class="ttl">🏯 台城城墙（解放门登城 · 南京城墙精华段）</div><div class="det">30 元/人，<b>70 周岁以上免票</b>（5位老人全免），6位成人 180 元，现场购票、无需预约；开放 08:30-17:00。登城是一段台阶，扶好慢慢上；<b>城顶是平路</b>，走十分钟就能拍到「玄武湖+鸡鸣寺+紫金山」三景同框，南京最经典机位。不愿爬台阶的老人留在门洞/湖边等，年轻人上去拍。</div><div class="tag">🎫 成人30</div><div class="tag">🎫 70+免票</div><div class="tag">城顶平路</div></div></div>
+    <div class="item"><div class="time">11:20-11:35</div><div class="body"><div class="ttl">解放门 → 一味老卤面（大石桥店）</div><div class="det">约1.5km/6min，是全天最短的一段转场。车停珠江路沿线商业体，步行5-8分钟进店（大石桥街是老小区内巷，车位极少）。</div><div class="tag">约1.5km</div><div class="tag">约6min</div></div></div>
+    <div class="item"><div class="time">11:45-13:00</div><div class="body"><div class="ttl">🍜 午餐 · 一味老卤面（大石桥店）</div><div class="det">玄武区大石桥街6号，人均约28元。网红干挑面（甜口、油偏大），老人可改汤面、备注少盐面条煮软。⚠ <b>店面仅十来张桌子、饭点排队</b>，11人建议分两桌；<b>出发前打 15312081054 确认当日营业</b>（部分资料写 08:00-14:00 有午休，11:45 到店稳妥）。</div><div class="tag">11人×28≈308</div><div class="tag">13:00前吃完</div></div></div>
+    <div class="item"><div class="time">13:15-13:35</div><div class="body"><div class="ttl">面馆 → 苜蓿园停车场（梧桐大道/明孝陵）</div><div class="det">苜蓿园停车场 10元/次不限时，车位充足，从这里步行进景区。<b>陵园路（梧桐大道）禁止路边停车拍照！抓拍罚款100元</b>——务必停苜蓿园再走进去。</div><div class="tag">约5.5km</div><div class="tag">约18min</div></div></div>
+    <div class="item"><div class="time">13:40-14:10</div><div class="body"><div class="ttl">🍂 梧桐大道·陵园路散步拍照（免费）</div><div class="det">从苜蓿园沿陵园路走向明孝陵方向。⚠ <b>真实提醒</b>：11/9 梧桐大道金黄程度约三四成（最佳期在11/16之后），别抱太高期待；真正的主角是下午的明孝陵石象路。</div></div></div>
+    <div class="item"><div class="time">14:10-15:40</div><div class="body"><div class="ttl">🏛️ 明孝陵·石象路赏秋（5号门/石象路入口）</div><div class="det">成人68元，75+凭身份证免票（60-69半价35元）。南京最美600米，<b>11/9 正踩在乌桕+银杏最佳观赏期的尾巴上</b>（乌桕最佳10/21-11/10），是本次行程唯一限定秋色窗口。只走石象路主线即可，路面平坦、强度低。</div><div class="tag">🎫 成人68</div><div class="tag">🎫 75+免票</div><div class="tag">只走主线</div></div></div>
+    <div class="item"><div class="time">15:55-16:15</div><div class="body"><div class="ttl">明孝陵 → 莫泰酒店</div><div class="det">约6km/20min，车停回酒店免费停车场，之后全靠步行。</div></div></div>
+    <div class="item"><div class="time">16:15-18:30</div><div class="body"><div class="ttl">酒店休整 / 自由活动（近2小时）</div><div class="det">比红山方案提前约1小时回到酒店，老人可以正经睡一觉。今晚不另排大餐。</div></div></div>
+    <div class="item"><div class="time">19:00-20:30</div><div class="body"><div class="ttl">🌃 步行夫子庙·秦淮河夜景 + 晚餐小吃</div><div class="det">出门190米。慢走消食赏灯光，顺带在夫子庙/老门东吃小吃（人均约35-40），11人×约38≈400元。老人逛累随时回房。</div><div class="tag">晚餐小吃≈400</div></div></div>
+
+    <div class="note">🗺️ <b>D3 为什么这样排</b>：玄武湖解放门与台城城墙是同一个入口，面馆在其南 1.5km，明孝陵在其东 5.5km——一条从北往南、再往东的顺线，<b>全天驾车约 19km / 约 64min</b>（红山方案为 28km/98min），没有任何回头路。全程步行约 3.5km 且无坡，是四天里最轻松的户外日。</div>
+
+    <div class="note">🎫 台城城墙(6成人×30)180 + 玄武湖游船 160 + 明孝陵(6×68)408 ｜ 🍜 午餐·一味老卤面 308 ｜ 🍽 晚餐·夫子庙小吃 400 ｜ 🚗 油费+停车(2车) 约180 ｜ 当日合计约 <b>¥1,636</b>（比原D3多约280元，比红山方案少约245元）</div>
+  </div>
+
+  <!-- ============ D4 ============ -->
+  <h2>📅 D4 · 11月10日（周二） 牛首山 → 返程永康</h2>
+  <div class="day">
+    <div class="dayhead"><span class="t">上午牛首山（周二工作日人少）· 午后上高速</span><span class="w">⚠ 爬山后直接长途，服务区多停一次</span></div>
+
+    <div class="note">🔁 <b>本天为本版新排</b>：原 D4 的纪念馆因 11/9 起闭馆改到 D2；牛首山从 D2 移到今天上午。牛首山在城南江宁，出城上高速方向顺路，返程不折返。</div>
+
+    <div class="item"><div class="time">07:00-07:45</div><div class="body"><div class="ttl">莫泰自助早餐，退房</div><div class="det">早餐07:00开始，吃饱再走；行李装车，房间检查一遍别落东西。</div></div></div>
+    <div class="item"><div class="time">08:00-08:35</div><div class="body"><div class="ttl">莫泰酒店 → 牛首山东门</div><div class="det">长乐路 → 内环东线 → 卡子门立交 → 绕城高速 → 宁丹路 → 牛首山东门 P1 停车场（1501位，4元/h、24元封顶）。周二早高峰约35min。</div><div class="tag">约20km</div><div class="tag">约35min</div></div></div>
+    <div class="item"><div class="time">08:35-12:30</div><div class="body"><div class="ttl">🏯 牛首山文化旅游区（约4h）</div><div class="det">开园即入，周二工作日人最少。成人145元/人，75+老人免票（提前在美团/携程约"70岁以上免费票"0元，凭身份证入园）；<b>全程坐观光车（20元/人）</b>，老人不爬山。路线：东门进 → 观光车 → 佛顶宫（地宫·扶梯直达）→ 佛顶塔 → 佛顶寺 → 坐车回东门。</div><div class="tag">🎫 成人145</div><div class="tag">🎫 老人免票</div><div class="tag">🚌 观光车20/人</div><div class="tag">雨天可缩到3h</div></div></div>
+    <div class="item"><div class="time">12:30-13:15</div><div class="body"><div class="ttl">🍜 午餐 · 半山素面</div><div class="det">人均33-45，清淡养生；面条软烂好消化，老人友好。吃完上厕所、活动腿再发车。</div></div></div>
+    <div class="item"><div class="time">13:15</div><div class="body"><div class="ttl">返程 · 牛首山 → 永康</div><div class="det">宁丹路 → 南京绕城高速 → 长深高速(G25) → 杭州绕城(G2504) → 沪昆高速(G60) → 永康。约400km，约4h50min（含休息约5h30min）。</div><div class="tag">约400km</div><div class="tag">约5h（含休息5.5h）</div></div></div>
+    <div class="item"><div class="time">~19:00</div><div class="body"><div class="ttl">🏠 到永康，行程圆满结束 🎉</div><div class="det">与原计划（约18:00到家）基本持平，只晚约1小时。</div></div></div>
+    <div class="note">🎫 牛首山门票(6成人×145)+观光车(11×20)=1,090元 ｜ 🍜 半山素面 440元 ｜ 🚗 油费+高速(回永康) 约1,020元 ｜ 当日合计约 <b>¥2,550</b></div>
+    <div class="note warn">⚠️ <b>今天是全程最耗体力的一天</b>：上午爬山 4 小时 + 下午 5 小时车程。应对措施：① 老人全程坐观光车，只走佛顶宫平地；② 服务区<b>停 2 次</b>，每次下车活动 10 分钟防腿肿；③ 车上备靠垫、热水和护膝；④ 若 11/10 下雨或老人身体不适，牛首山可只上佛顶宫（3 小时收工）或直接放弃、提前返程。</div>
+  </div>
+
+  <!-- ============ 停车场明细 ============ -->
+  <h2>🅿️ 停车场信息明细（自驾必看）</h2>
   <table>
-    <thead><tr><th>地点</th><th>停车场</th><th>提示</th></tr></thead>
+    <thead><tr><th>地点</th><th>停车场</th><th>收费标准</th><th>提示</th></tr></thead>
     <tbody>
-      <tr><td>牛首山</td><td>东门 P1 室内停车场（1501 位）</td><td>车位充足，停东门离入口最近</td></tr>
-      <tr><td>莫愁湖公园</td><td>北门停车场（汉中门大街侧）</td><td>出园走水西门大街 3 km 直达茶南</td></tr>
-      <tr><td>玄武湖 / 台城城墙</td><td>玄武门或解放门周边景区停车场 / 鸡鸣寺路社会停车场</td><td>解放门路侧车位少，早到好停</td></tr>
-      <tr><td>面馆（大石桥）</td><td>珠江路沿线商业体</td><td>巷内车位极少，停好步行 5-8 分钟</td></tr>
-      <tr><td>梧桐大道 / 明孝陵</td><td>苜蓿园停车场（车位充足）</td><td>换乘景区观光车；陵园路禁停抓拍</td></tr>
-      <tr><td>大屠杀纪念馆</td><td>「三个必胜」地下停车场（443 位）</td><td>认准馆方停车场</td></tr>
-      <tr><td>茶南美食街</td><td>茶南农贸市场停车场 / 路边泊位</td><td>停留约 1 小时，吃完就走</td></tr>
+      <tr><td>宣城格林豪泰</td><td>酒店自有停车场</td><td>免费</td><td>车位有限先到先得，两辆车尽量一起到</td></tr>
+      <tr><td>牛首山</td><td>东门P1室内停车场（1501位）</td><td>4元/h，24元封顶，15分钟内免费</td><td>车位充足，停东门离入口最近</td></tr>
+      <tr><td><b>莫愁湖公园</b></td><td><b>南北门停车场（北门在汉中门大街侧）</b></td><td>按时计费（以现场公示为准）</td><td><b>本版新增（D2上午）</b>；出园走水西门大街 3km 直达茶南美食街</td></tr>
+      <tr><td>南京莫泰酒店</td><td>合作公共停车场（2-3楼）</td><td>免费（住宿期间）</td><td>先到酒店门口卸行李再停车；D2下午停进去后基本不用再动车</td></tr>
+      <tr><td><b>玄武湖 / 台城城墙</b></td><td><b>玄武门或解放门周边景区停车场 / 鸡鸣寺路社会停车场</b></td><td>按时计费（以现场公示为准）</td><td><b>本版新增</b>；解放门路侧车位少，早到好停；台城登城口就在解放门，停好走两步就到</td></tr>
+      <tr><td>梧桐大道/明孝陵</td><td>苜蓿园停车场</td><td>10元/次不限时</td><td>车位充足换景区车；陵园路禁路边停车拍照罚100元</td></tr>
+      <tr><td>明孝陵景区内</td><td>景区停车场</td><td>工作日15元/天</td><td>备选；周末/节假日需公众号预约</td></tr>
+      <tr><td>大屠杀纪念馆</td><td>"三个必胜"地下停车场（443位）</td><td>约10元/次，24元/天封顶</td><td>认准馆方停车场，勿理路边"黄牛"（收20-30元）</td></tr>
+      <tr><td>茶南美食街</td><td>茶南农贸市场停车场/路边泊位</td><td>约6-10元</td><td>只停1小时左右，吃完就走</td></tr>
+      <tr><td>一味老卤面</td><td>大石桥街/珠江路沿线商业体</td><td>路边泊位约6-8元/小时</td><td>街巷车位极少，建议停珠江路商业体步行5-8分钟</td></tr>
+      <tr><td>夫子庙（备用）</td><td>水平方/茂业天地商场停车场</td><td>全天封顶25元</td><td>住莫泰后基本用不上，逛夫子庙全靠步行</td></tr>
+    </tbody>
+  </table>
+  <div class="note">💡 下载「宁停车」APP，南京市区停车有优惠，部分停车场可提前预约车位。</div>
+
+  <!-- ============ 预算汇总 ============ -->
+  <h2>📊 整体预算汇总（11人 · 2辆车）</h2>
+  <div class="budget">
+    <div class="b"><div class="k">宣城住宿（1晚×5间×180，含早）</div><div class="v">¥900</div></div>
+    <div class="b"><div class="k">南京住宿（2晚×5间×240，含早）</div><div class="v">¥2,400</div></div>
+    <div class="b"><div class="k">门票（牛首山+台城城墙+玄武湖游船+明孝陵）</div><div class="v">约¥1,838</div></div>
+    <div class="b"><div class="k">德云社（11人×80，已购✅）</div><div class="v">¥880</div></div>
+    <div class="b"><div class="k">交通（油费+高速+停车，2辆车）</div><div class="v">约¥2,100</div></div>
+    <div class="b"><div class="k">餐饮（4顿正餐+小吃，早餐全含房费）</div><div class="v">约¥1,890</div></div>
+  </div>
+  <div class="total">总预估约 <b>¥10,005</b> ｜ 人均约 <b>¥910/人</b></div>
+  <div class="note">⚠️ 酒店价格可能浮动，以实际预订为准 ｜ 5位75+老人门票共省约 <b>1,320元</b>（牛首山145 + 台城城墙30 + 明孝陵68，均免票）｜ 本版 D3 由红山改为玄武湖+城墙：去掉红山门票+观光车 <b>−585</b>，新增城墙 180 + 游船 160 = <b>+340</b>，净省约 245 元（上一版 ¥10,250 → 本版 ¥10,005）。游船按"1只6座分两批"计；若租两只同游为 320 元，总额约 ¥10,165。</div>
+
+  <!-- ============ 预约时间表 ============ -->
+  <h2>📅 预约时间表（按时操作）</h2>
+  <table>
+    <thead><tr><th>项目</th><th>预约方式</th><th>关键时间</th></tr></thead>
+    <tbody>
+      <tr><td>🎭 德云社晚场</td><td>大麦网App</td><td>已抢到✅（11/8 晚场）；全员带身份证原件</td></tr>
+      <tr><td>🕊️ <b>大屠杀纪念馆（改到 11/8）</b></td><td>官方公众号"侵华日军南京大屠杀遇难同胞纪念馆"</td><td><b>今天（11/2）就要约！</b>提前1-7天、每日8:00放票；务必选 <b>11/8「下午时段」</b>（12:30-16:30）；5位老人走"优待预约"通道</td></tr>
+      <tr><td>🏛️ <b>牛首山（改到 11/10）</b></td><td>美团/携程</td><td><b>改约 11/10</b>（提前2-3天购票）；5位75+老人单独预约"70岁以上免费票"(0元)，凭身份证入园；若已购 11/8 票需退改</td></tr>
+      <tr><td>🏯 台城城墙（解放门）</td><td>现场购票，也可关注"南京城墙"公众号线上买</td><td><b>无需预约</b>；08:30-17:00；30元/人，<b>70周岁以上凭身份证免票</b>，60-69岁半价15元</td></tr>
+      <tr><td>🌊 玄武湖 / 游船</td><td>公园免票免预约；游船到码头现场扫码</td><td>公园全天开放；游船 8:30-17:00，1小时起租、押金500/船，建议 09:30 前上船不排队</td></tr>
+      <tr><td>🌊 梧桐大道/明孝陵</td><td>现场购票/美团</td><td>当天即可（周一正常开放 06:30-18:30）；75+凭身份证免票</td></tr>
     </tbody>
   </table>
 
-  <!-- ===== 行李清单 ===== -->
-  <h2>🎒 出发前请对照打包</h2>
-  <div class="cols2">
-    <div class="card"><h4>📄 证件</h4><ul>
-      <li>身份证原件（全员，最关键）</li>
-      <li>老年证</li>
-      <li>医保卡 / 慢性病卡</li>
+  <!-- ============ 老人清单 ============ -->
+  <h2>👴 老人出行 · 物品清单 & 注意事项（5位75+必读）</h2>
+  <div class="checklist">
+    <div class="grp"><h4>📄 证件类</h4><ul>
+      <li>身份证原件（全员！德云社实名+人脸、牛首山/台城城墙/明孝陵免票、纪念馆预约全靠它）</li>
+      <li>老年证（部分景区可辅助）</li>
+      <li>驾驶证、行驶证（2辆车）</li>
+      <li>医保卡/慢性病卡</li>
     </ul></div>
-    <div class="card"><h4>💊 药品</h4><ul>
-      <li>慢性病药：5 天量 + 2 天余量，按天分装</li>
-      <li>速效救心丸 / 硝酸甘油（随身，别放后备箱）</li>
-      <li>晕车药、肠胃药、感冒退烧药</li>
-      <li>创可贴、风油精、便携血压计</li>
+    <div class="grp"><h4>💊 药品类（重点）</h4><ul>
+      <li>每天吃的慢性病药：按5天量+2天余量，分装药盒按天装好</li>
+      <li>速效救心丸/硝酸甘油（随身携带，别放后备箱）</li>
+      <li>晕车药（长途前30分钟吃）</li>
+      <li>感冒退烧、肠胃药（蒙脱石散）、藿香正气水</li>
+      <li>创可贴、风油精、血压计（酒店早晚各量一次）</li>
     </ul></div>
-    <div class="card"><h4>🧥 穿着</h4><ul>
-      <li>防滑舒适鞋（石板路多，别穿新鞋）</li>
-      <li>保暖外套 / 薄羽绒（早晚温差大）</li>
-      <li>围巾、帽子（夜间秦淮河边风大）</li>
-      <li>折叠雨伞一人一把</li>
+    <div class="grp"><h4>🧥 穿着类</h4><ul>
+      <li>防滑舒适运动鞋（石板路多，别穿新鞋）</li>
+      <li>保暖外套/薄羽绒（11月8-18°C，早晚温差大）</li>
+      <li>围巾、帽子（秦淮河边晚上风大）</li>
+      <li>折叠雨伞（一人一把）</li>
+      <li>换洗衣物、防滑拖鞋</li>
     </ul></div>
-    <div class="card"><h4>🎒 随身好物</h4><ul>
-      <li>折叠拐杖凳（排队看演出能坐）</li>
-      <li>护膝、老花镜、保温杯</li>
-      <li>充电宝、常用数据线</li>
-      <li>紧急联系卡（姓名、家属电话、病史）放外套口袋</li>
+    <div class="grp"><h4>🎒 辅助用品类</h4><ul>
+      <li>折叠拐杖凳（三合一，排队/看演出能坐）</li>
+      <li>护膝（台城登城有台阶、明孝陵走久护着点）</li>
+      <li>老花镜、助听器（带备用电池）</li>
+      <li>保温杯（每个景点都有热水点）</li>
+      <li>充电宝 + 备用老人机</li>
+      <li>紧急联系卡（姓名、子女电话、基础病史）放外套口袋</li>
     </ul></div>
   </div>
 
-  <!-- ===== 注意事项 ===== -->
-  <h2>❤️ 长辈同行 · 六条要记牢</h2>
   <div class="rules">
+    <b>🔴 老人注意事项（6条铁律）</b>
     <ol>
-      <li><b>药不能断</b>：每天早晚按时吃药，由一位年轻人专职提醒；救心丸随身带。</li>
-      <li><b>防摔第一</b>：夫子庙、老门东都是石板路，穿防滑鞋慢慢走，上下台阶一定扶一把。</li>
-      <li><b>不逞强</b>：牛首山、明孝陵都有观光车和休息凳，玄武湖随处是长椅，走不动就坐，绝不硬撑。</li>
-      <li><b>午休必须保证</b>：11/8 下午那两小时是特意留出来的，别拿去加景点。</li>
-      <li><b>多喝温水</b>：11 月干燥，各景点都有热水点；饮食以面食、汤包等清淡易消化为主。</li>
-      <li><b>晚上早归</b>：夜景逛到 20:30 左右回酒店，夜里约 10°C，别着凉。</li>
+      <li><b>药不能断</b>：每天早晚定时吃药，1位年轻人专职提醒；速效救心丸随身带</li>
+      <li><b>防摔第一</b>：夫子庙/老门东石板路，穿防滑鞋、慢慢走；上下台阶一定扶着</li>
+      <li><b>不逞强</b>：所有景点都有观光车/休息点，走不动就坐，别硬撑</li>
+      <li><b>保证午休</b>：D2下午2小时酒店休整是特意留的，别拿去加景点</li>
+      <li><b>多喝温水</b>：11月干燥，每个景点接热水；饮食清淡（面/汤包都好消化）</li>
+      <li><b>晚间早归</b>：夜景逛到20:30左右就回，11月夜里约10°C，别着凉</li>
     </ol>
   </div>
 
-  <div class="note-free" style="border:1px solid var(--line); border-radius:10px; padding:10px 14px; background:var(--soft); font-size:13px; break-inside:avoid;">
-    <b style="color:var(--brand);">📌 一句话总结</b>：跟着时间走、跟着领队走、证件随身带、累了就说。<br>
-    门票、住宿、演出票、车位均已统一安排妥当，您只需带上好心情。祝旅途愉快 🍁
+  <!-- ============ 重要提醒 ============ -->
+  <h2>📌 重要提醒 & 出行贴士</h2>
+
+  <div class="remind red">
+    <b>🔴 德云社（已购✅）</b>：实名制+人脸识别，11人务必带身份证原件！不支持转赠；票价80元/人按原计划。老门东距酒店约1公里，散场5位老人建议直接打车回（起步价）。
+  </div>
+  <div class="remind red">
+    <b>🔴 纪念馆：已改到 11/8（周日）下午，今天必须预约</b>：官方通告 <b>11/9—12/13 闭馆</b>（筹备重要活动+场馆检修），本次行程只剩 11/8 一天。预约要点：唯一渠道为官方公众号，提前1-7天、每日 8:00 放票；<b>务必选"下午时段"（12:30-16:30，可提前至12:00入馆）</b>；5位75+老人走"优待预约"通道不受名额限制但也要约；每张身份证每月限约1次；勿找黄牛。全员带身份证原件，当天 16:30 停止入馆。
+  </div>
+  <div class="remind org">
+    <b>🟠 牛首山：已改到 11/10（周二）上午</b>：70岁以上免票，5位老人提前在美团/携程约"70岁以上免费票"(0元)；一定给老人买接驳车票(20元/人往返)，佛顶宫建在山上；东门P1停车场1501位。<b>若已购买 11/8 的票需退改</b>。周二工作日人流最少，体验好于周末。
+  </div>
+  <div class="remind org">
+    <b>🟠 玄武湖 + 台城城墙（本版新增，替代红山）</b>：玄武湖<b>免费、全天开放、全程平地</b>，穿解放门门洞即到湖边；游船 8:30-17:00，<b>1只6座160元/小时可分批坐完11人</b>，押金500/船记得退，救生衣必穿、不得单人乘船。台城城墙 30 元、<b>70+ 免票</b>，登城有一段台阶——扶好慢上，不想爬的在湖边等。城顶是平路，能拍到玄武湖+鸡鸣寺+紫金山同框。
+  </div>
+  <div class="remind org">
+    <b>🟠 明孝陵 & 梧桐大道</b>：11/9 梧桐大道约三四成黄（最佳期在11/16后），不必强求；真正顶流是明孝陵石象路（乌桕+银杏，正当时）。石象路全程平路；停苜蓿园停车场，陵园路禁路边停车拍照。
+  </div>
+  <div class="remind grn">
+    <b>🟢 其他贴士</b>：① 两家酒店均含早+免费停车，早上吃饱省一笔；② 莫泰在夫子庙景区内，D2/D3夜景、德云社不用动车；③ 11人2车座位提前分好、长途轮换开；④ 外地车牌注意南京长江大桥全天禁行外地车（本行程不走）；⑤ 一味老卤面饭点排队、店面小，11人分两桌或错峰；⑥ 如需轮椅：牛首山、明孝陵、莫愁湖、玄武湖、夫子庙路面平整可推，景区/公园可租借（<b>台城城墙有台阶，轮椅无法登城</b>，可留人在湖边陪）。
+  </div>
+  <div class="remind grn">
+    <b>🟢 D2 新增莫愁湖（免费）</b>：建邺区水西门大街132号，环湖约3km、<b>全程平地无台阶</b>，长廊多可随时歇脚，园内可免费借轮椅、有热水点；11月乌桕/水杉正有秋色。南北门均有停车场，停北门（汉中门大街侧）出来顺水西门大街 3km 到茶南美食街。<b>室内展馆（胜棋楼等）周一闭馆</b>，周日不受影响。
   </div>
 
-  <div class="foot">南京 4 日行程单 · 旅客版｜2026 年 11 月 7 日 - 11 月 10 日｜打印建议 A4 纵向、边距默认</div>
+  <div class="foot">南京4日自驾行程单 · 修订版（纪念馆改D2 · 牛首山移D4 · D3改玄武湖+台城城墙）｜ 更新于 2026-11-02（依据官方闭馆通告 11/9—12/13）｜ 打印时点击右上角「打印 / 存 PDF」，建议 A4 纵向、边距默认。</div>
 
 </div>
 </body>
